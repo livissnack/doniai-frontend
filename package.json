@@ -13,7 +13,6 @@
     "@mlqt/vue-back-top": "^1.0.8",
     "buefy": "^0.7.8",
     "bulma-badge": "^3.0.1",
-    "core-js": "^2.6.5",
     "docsearch.js": "^2.6.3",
     "lodash": "^4.17.15",
     "mavon-editor": "^2.7.5",
@@ -28,19 +27,17 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@types/lodash.defaultsdeep": "4.6.1",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-plugin-unit-mocha": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
-    "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.1",
     "chai": "^4.1.2",
-    "eslint": "^5.16.0",
+    "eslint": "^6.1.0",
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",
-    "less-loader": "^4.1.0",
+    "less-loader": "^5.0.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
