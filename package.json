@@ -1,0 +1,44 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@mlqt/vue-back-top": "^1.0.8",
+    "buefy": "^0.7.8",
+    "bulma-badge": "^3.0.1",
+    "core-js": "^2.6.5",
+    "docsearch.js": "^2.6.3",
+    "mavon-editor": "^2.7.5",
+    "vue": "^2.6.10",
+    "vue-lazyload": "^1.3.1",
+    "vue-meditor": "^1.3.0",
+    "vue-particles": "^1.0.9",
+    "vue-router": "^3.0.3",
+    "vue-social-captcha": "^0.1.1",
+    "vue-socialmedia-share": "^1.0.1",
+    "vue-video-player": "^5.0.2",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-plugin-unit-mocha": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
