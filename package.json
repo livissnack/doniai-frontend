@@ -1,5 +1,5 @@
 {
-  "name": "blog",
+  "name": "blog-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -39,6 +39,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "loadsh": "^0.0.4",
     "vue-template-compiler": "^2.6.10"
   }
 }
