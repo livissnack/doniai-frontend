@@ -115,7 +115,6 @@ export default {
      */
     handleSubmit() {
       if (++this.submitting === 1) {
-        console.log(this.submitData);
         Snackbar.open("发帖成功");
       } else {
         Snackbar.open({

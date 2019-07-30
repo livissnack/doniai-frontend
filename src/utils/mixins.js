@@ -59,7 +59,6 @@ export default {
      * 执行登录操作
      */
     handleSubmit(name) {
-      console.log(name);
       if (
         this.form.email == "" ||
         this.form.email == null ||
@@ -75,11 +74,9 @@ export default {
         this.passwordMsg = true;
       }
       if (this.validateCaptchaStatus) {
-        console.log(this.form);
         this.$store.commit("userStatus", { name: "isLogin" });
         this.$router.push({ name: "home" });
       } else {
-        console.error("验证码校验不通过!");
         Snackbar.open({
           message: "验证码校验不通过",
           type: "is-danger",
@@ -92,7 +89,6 @@ export default {
      */
     captchaNotice(status, res) {
       if (status == 1) {
-        console.log(res);
         this.validateCaptchaStatus = true;
       }
     },

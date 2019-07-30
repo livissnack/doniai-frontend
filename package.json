@@ -9,10 +9,8 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.9.0",
     "@mlqt/vue-back-top": "^1.0.8",
     "buefy": "^0.7.8",
-    "bulma-badge": "^3.0.1",
     "docsearch.js": "^2.6.3",
     "lodash": "^4.17.15",
     "lodash.defaultsdeep": "^4.6.1",

@@ -146,7 +146,6 @@ export default {
   },
   methods: {
     changeSupportNums(value) {
-      console.log(value);
       Toast.open({
         duration: 2000,
         message: JSON.stringify(value),
@@ -155,7 +154,6 @@ export default {
       });
     },
     changeAgainstNums(value) {
-      console.log(value);
       Toast.open({
         duration: 2000,
         message: JSON.stringify(value),

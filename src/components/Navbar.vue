@@ -192,9 +192,7 @@ export default {
   },
   methods: {
     logout() {
-      console.log("adad");
       this.$store.commit("userStatus", { name: "isLogin" });
-      console.log(this.$store.state.isLogin);
       this.$router.push({ name: "home" });
     }
   }
