@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="content container has-text-centered">
-      <div class="columns is-mobile">
+      <div class="columns is-desktop">
         <div class="column">
           <h4 class="site-description">Doniai Artist</h4>
           <p class="footer-description">

@@ -1,44 +1,34 @@
 <template>
   <div class="box-navbar-bg">
     <div class="container">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+      <nav class="navbar">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <!-- <em class="navbar-logo">Hiphup</em> -->
             <img :src="websiteLogo" class="navbar-logo" alt="Doniai" />
           </a>
 
-          <a
-            role="button"
+          <div
+            id="navbarBurger"
             class="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
+            data-target="navMenuDocumentation"
+            @click="handleMobileDeviceNavbar"
           >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navMenuDocumentation" class="navbar-menu" :class="isActive">
           <div class="navbar-start">
-            <router-link to="/lessons" class="navbar-menu-font navbar-item">
-              全部视频
-            </router-link>
+            <router-link to="/lessons" class="navbar-menu-font navbar-item">全部视频</router-link>
 
-            <router-link to="/discuss" class="navbar-menu-font navbar-item">
-              问答社区
-            </router-link>
+            <router-link to="/discuss" class="navbar-menu-font navbar-item">问答社区</router-link>
 
-            <router-link to="/docs" class="navbar-menu-font navbar-item">
-              文章教程
-            </router-link>
+            <router-link to="/docs" class="navbar-menu-font navbar-item">文章教程</router-link>
 
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-menu-font navbar-link">
-                其它
-              </a>
+              <a class="navbar-menu-font navbar-link">其它</a>
 
               <div class="navbar-dropdown">
                 <router-link to="/learn" class="navbar-menu-font navbar-item">
@@ -83,18 +73,8 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <router-link
-                  to="/register"
-                  v-if="!isLogin"
-                  class="button is-success is-small"
-                >
-                  注册
-                </router-link>
-                <router-link
-                  to="/login"
-                  v-if="!isLogin"
-                  class="button is-primary is-small"
-                >
+                <router-link to="/register" v-if="!isLogin" class="button is-success is-small">注册</router-link>
+                <router-link to="/login" v-if="!isLogin" class="button is-primary is-small">
                   <strong>登录</strong>
                 </router-link>
 
@@ -107,10 +87,7 @@
                 <div v-if="isLogin" class="dropdown is-right is-hoverable">
                   <div class="dropdown-trigger">
                     <button class="clear-btn-border button">
-                      <img
-                        v-lazy="userAvatar"
-                        class="avatar-logo is-48x48 is-rounded"
-                      />
+                      <img v-lazy="userAvatar" class="avatar-logo is-48x48 is-rounded" />
                       <span>{{ username }}</span>
                       <span class="icon is-small">
                         <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -120,40 +97,99 @@
                   <div class="hover-dropdown dropdown-menu" role="menu">
                     <div class="clear-padding dropdown-content">
                       <div class="hover-dropdown-item dropdown-item">
-                        <a class="item-icon-menu"
-                          ><i class="fas fa-blog"></i><span>我的博客</span></a
-                        >
+                        <a class="item-icon-menu">
+                          <i class="fas fa-blog"></i>
+                          <span>我的博客</span>
+                        </a>
                       </div>
                       <div class="hover-dropdown-item dropdown-item">
-                        <a class="item-icon-menu"
-                          ><i class="fas fa-heart"></i><span>我的收藏</span></a
-                        >
+                        <a class="item-icon-menu">
+                          <i class="fas fa-heart"></i>
+                          <span>我的收藏</span>
+                        </a>
                       </div>
                       <div class="hover-dropdown-item dropdown-item">
-                        <a class="item-icon-menu"
-                          ><i class="fas fa-user"></i><span>个人中心</span></a
-                        >
+                        <a class="item-icon-menu">
+                          <i class="fas fa-user"></i>
+                          <span>个人中心</span>
+                        </a>
                       </div>
                       <div class="hover-dropdown-item dropdown-item">
-                        <a class="item-icon-menu"
-                          ><i class="fas fa-credit-card"></i
-                          ><span>卡卷中心</span></a
-                        >
+                        <a class="item-icon-menu">
+                          <i class="fas fa-credit-card"></i>
+                          <span>卡卷中心</span>
+                        </a>
                       </div>
                       <div class="hover-dropdown-item dropdown-item">
-                        <a class="item-icon-menu"
-                          ><i class="fas fa-edit"></i><span>编辑资料</span></a
-                        >
+                        <a class="item-icon-menu">
+                          <i class="fas fa-edit"></i>
+                          <span>编辑资料</span>
+                        </a>
                       </div>
                       <div class="hover-dropdown-item dropdown-item">
-                        <a class="item-icon-menu" @click="logout"
-                          ><i class="fas fa-sign-out-alt"></i
-                          ><span>系统退出</span></a
-                        >
+                        <a class="item-icon-menu" @click="logout">
+                          <i class="fas fa-sign-out-alt"></i>
+                          <span>系统退出</span>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">中文</a>
+
+              <div id="moreDropdown" class="navbar-dropdown">
+                <a class="navbar-item" href="#" @click="changeLocale('zh-CN')">
+                  <span>
+                    <span class="icon">
+                      <i class="fas fa-rocket"></i>
+                    </span>
+                    <strong>zh-CN</strong>
+                  </span>
+                </a>
+                <a class="navbar-item" href="#" @click="changeLocale('ar-SA')">
+                  <span>
+                    <span class="icon">
+                      <i class="fas fa-certificate"></i>
+                    </span>
+                    <strong>ar-SA</strong>
+                  </span>
+                </a>
+                <a class="navbar-item" href="#" @click="changeLocale('en-US')">
+                  <span>
+                    <span class="icon">
+                      <i class="fas fa-certificate"></i>
+                    </span>
+                    <strong>en-US</strong>
+                  </span>
+                </a>
+                <a class="navbar-item" href="#" @click="changeLocale('ja-JP')">
+                  <span>
+                    <span class="icon">
+                      <i class="fas fa-certificate"></i>
+                    </span>
+                    <strong>ja-JP</strong>
+                  </span>
+                </a>
+                <a class="navbar-item" href="#" @click="changeLocale('ko-KR')">
+                  <span>
+                    <span class="icon">
+                      <i class="fas fa-certificate"></i>
+                    </span>
+                    <strong>ko-KR</strong>
+                  </span>
+                </a>
+                <a class="navbar-item" href="#" @click="changeLocale('tr-TR')">
+                  <span>
+                    <span class="icon">
+                      <i class="fas fa-certificate"></i>
+                    </span>
+                    <strong>tr-TR</strong>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -170,6 +206,7 @@ export default {
   name: "Navbar",
   data() {
     return {
+      isActive: "",
       userAvatar:
         "https://iocaffcdn.phphub.org/uploads/avatars/8689_1486625751.jpg!/both/100x100",
       websiteLogo: require("../assets/logo.png"),
@@ -194,6 +231,13 @@ export default {
     logout() {
       this.$store.commit("userStatus", { name: "isLogin" });
       this.$router.push({ name: "home" });
+    },
+    handleMobileDeviceNavbar() {
+      this.isActive = (this.isActive === "" || null || undefined) ? "is-active" : "";
+    },
+    changeLocale(lang) {
+      this.$i18n.locale = lang;
+      localStorage.setItem("locale", lang);
     }
   }
 };
