@@ -84,6 +84,13 @@ const router = new Router({
           name: "article",
           meta: { title: "NodeJs 视频问答社区 - Doniai" }
         },
+        // 文章详情页
+        {
+          path: "/docs/:id",
+          component: () => import("@/views/article/Detail.vue"),
+          name: "articleDetail",
+          meta: { title: "NodeJs 视频问答社区 - Doniai" }
+        },
         // 打赏页
         {
           path: "/donate",

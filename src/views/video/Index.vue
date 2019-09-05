@@ -17,16 +17,16 @@
                     <i class="far fa-play-circle"></i>
                   </span>
                   <span class="panel-text">
-                    {{ item.title }}
+                    {{ item.name }}
                   </span>
                 </div>
 
                 <div class="play-content-right">
                   <span class="long-time panel-text">
-                    {{ item.longtime }}
+                    {{ item.duration|longtime }}
                   </span>
                   <span class="panel-text">
-                    <time>{{ item.publicAt }}</time>
+                    <time>{{ item.publish_at }}</time>
                   </span>
                 </div>
               </router-link>
@@ -40,89 +40,45 @@
 </template>
 
 <script>
+import { getVideos } from "../../services/api";
 import Pagiation from "@/components/Pagiation";
 export default {
   data() {
     return {
+      filters: {
+        pageSize: 40,
+        page: 1
+      },
+      pagination: {
+        current: 1,
+        pageSize: 40,
+        total: 0
+      },
       videoTitle: "视频更新列表：NodeJs 开发视频，全在这里",
-      listData: [
-        {
-          id: 1,
-          title: "MySQL 备份到云存储 AWS S3",
-          longtime: "14分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 2,
-          title: "MySQL 从属数据库配置",
-          longtime: "10分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 3,
-          title: "定时任务部署",
-          longtime: "8分钟",
-          publicAt: "Aug 10, 2019"
-        },
-        {
-          id: 4,
-          title: "MySQL 备份到云存储 AWS S3",
-          longtime: "14分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 5,
-          title: "MySQL 从属数据库配置",
-          longtime: "10分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 6,
-          title: "定时任务部署",
-          longtime: "8分钟",
-          publicAt: "Aug 10, 2019"
-        },
-        {
-          id: 7,
-          title: "MySQL 备份到云存储 AWS S3",
-          longtime: "14分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 8,
-          title: "MySQL 从属数据库配置",
-          longtime: "10分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 9,
-          title: "定时任务部署",
-          longtime: "8分钟",
-          publicAt: "Aug 10, 2019"
-        },
-        {
-          id: 10,
-          title: "MySQL 备份到云存储 AWS S3",
-          longtime: "14分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 11,
-          title: "MySQL 从属数据库配置",
-          longtime: "10分钟",
-          publicAt: "Aug 20, 2018"
-        },
-        {
-          id: 12,
-          title: "定时任务部署",
-          longtime: "8分钟",
-          publicAt: "Aug 10, 2019"
-        }
-      ]
+      listData: []
     };
   },
   components: {
     Pagiation
+  },
+  filters: {
+    longtime(value) {
+      return value ? value+'小时' : '';
+    }
+  },
+  created() {
+    this.getVideos();
+  },
+  methods: {
+    async getVideos() {
+      try {
+        const { data } = await getVideos(this.filters);
+        this.listData = data.data.data;
+        console.log(data.data);
+      } catch ({ response }) {
+        console.log(response);
+      }
+    },
   }
 };
 </script>

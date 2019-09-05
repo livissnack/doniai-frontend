@@ -26,22 +26,22 @@
             class="article-content mr-top10 media"
             v-for="item in listData"
             :key="item.id"
-            @click="jumpQuestionDetail(item.id)"
+            @click="jumpArticleDetail(item.id)"
           >
             <div class="media-content">
               <div class="content">
                 <p>
                   <a class="article-title">{{ item.title }}</a>
-                  <span class="comment-content">{{ item.desc }}</span>
+                  <span class="comment-content">{{ item.content }}</span>
                 </p>
               </div>
               <nav class="level is-mobile">
                 <div class="level-left">
                   <a class="level-item">
-                    <span class="author-font is-small">{{ item.author }}</span>
+                    <span class="author-font is-small">{{ item.user ? item.user.username : '' }}</span>
                   </a>
                   <a class="level-item">
-                    <time class="time-font">{{ item.time }}</time>
+                    <time class="time-font">{{ item.updated_at|relateTime }}</time>
                   </a>
                   <a class="icon-comment">
                     <span class="icon is-small">
@@ -94,10 +94,10 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <a
-                      >科学上网服务,使用此链接你可获得 $20
-                      优惠,支持支付宝付款！！！</a
-                    >
+                    <a>
+                      科学上网服务,使用此链接你可获得 $20
+                      优惠,支持支付宝付款！！！
+                    </a>
                   </div>
                 </div>
               </article>
@@ -110,10 +110,10 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <a
-                      >DigitalOcean $100 优惠链接，使用此链接你可以获取 $100
-                      美元优惠</a
-                    >
+                    <a>
+                      DigitalOcean $100 优惠链接，使用此链接你可以获取 $100
+                      美元优惠
+                    </a>
                   </div>
                 </div>
               </article>
@@ -132,6 +132,8 @@
 </template>
 
 <script>
+import { getArticles } from "../../services/api";
+import { timeToDate } from "../../utils/helpers";
 import Pagiation from "@/components/Pagiation";
 import { Snackbar } from "buefy/dist/components/snackbar";
 export default {
@@ -140,35 +142,32 @@ export default {
       digitalOcean: require("../../assets/digital-ocean.png"),
       upunLogo: require("../../assets/upun-logo.jpg"),
       vyprVpn: require("../../assets/vypr-vpn.png"),
-      listData: [
-        {
-          id: Math.round(Math.random() * 100),
-          title: "村上春树：我读了12遍的书，是一部完美的杰作",
-          author: "拾书小记",
-          image: require("../../assets/articles/2311657-cf408650cebea965.jpeg"),
-          time: "3个月前",
-          desc:
-            "大家好，我是拾书君，好久不见了，我给大家推书啦。 今天推荐的这本书是村上春树先生特别喜欢的作品，被他称作“完美的杰作”，我相信大家如果有机会读到..."
-        },
-        {
-          id: Math.round(Math.random() * 100),
-          title:
-            "新晋网红太好看了，王思聪都关注了她，网友高呼，太好看了，医院在哪我要去",
-          author: "JellyBool",
-          image: require("../../assets/articles/9276238-8520f77112aa359a.jpeg"),
-          time: "3个月前",
-          desc:
-            "从网红在网络盛行开始，很多人都开始加入这个行列，微博上也经常看到很多漂亮的小姐姐，都说网红收入多高，月入百万等等。咱们现在无从考证，不过确实能获..."
-        }
-      ]
+      filters: {
+        pageSize: 40,
+        page: 1
+      },
+      pagination: {
+        current: 1,
+        pageSize: 40,
+        total: 0
+      },
+      listData: []
     };
   },
   components: {
     Pagiation
   },
+  filters: {
+    relateTime(str) {
+      return timeToDate(str);
+    }
+  },
+  created() {
+    this.getArticles();
+  },
   methods: {
-    jumpQuestionDetail(nums) {
-      this.$router.push({ name: "questionDetail", params: { id: nums } });
+    jumpArticleDetail(nums) {
+      this.$router.push({ name: "articleDetail", params: { id: nums } });
     },
     handleWriteArticle() {
       Snackbar.open({
@@ -176,6 +175,15 @@ export default {
         type: "is-warning",
         actionText: "No"
       });
+    },
+    async getArticles() {
+      try {
+        const { data } = await getArticles(this.filters);
+        this.listData = data.data.data;
+        console.log(data.data);
+      } catch ({ response }) {
+        console.log(response);
+      }
     }
   }
 };

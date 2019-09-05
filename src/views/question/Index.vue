@@ -12,7 +12,7 @@
           >
             <figure class="media-left">
               <p class="image is-48x48">
-                <img class="is-rounded" v-lazy="item.avatar" />
+                <img class="is-rounded" :src="item.user.avatar" />
               </p>
             </figure>
             <div class="media-content">
@@ -23,31 +23,26 @@
                     <div class="level-left">
                       <a class="level-item">
                         <span class="author-font is-small"
-                          >{{ item.author }} 发表于</span
+                          >{{ item.user.username }} 发表于</span
                         >
                       </a>
                       <a class="level-item">
-                        <time class="time-font">{{ item.time }}</time>
+                        <time class="time-font">{{ item.updated_at|relateTime }}</time>
                       </a>
                     </div>
                   </nav>
                   <span class="comment-content">
-                    {{ item.desc }}
+                    {{ item.content }}
                   </span>
                 </div>
               </div>
             </div>
             <div class="media-right">
-              <span
-                class="tag-collect tag"
-                :class="childItem.style"
-                v-for="childItem in item.tag"
-                :key="childItem.id"
-                >{{ childItem.text }}</span
-              >
+              <span class="tag-collect tag is-success">laravel</span>
+
               &nbsp;
               <span class="icon has-text-black">
-                <i class="fas fa-comment">{{ item.commentCount }}</i>
+                <i class="fas fa-comment">{{ item.replay_count }}</i>
               </span>
             </div>
           </article>
@@ -120,6 +115,8 @@
 </template>
 
 <script>
+import { getQuestions } from "../../services/api";
+import { timeToDate } from "../../utils/helpers";
 import Pagiation from "@/components/Pagiation";
 export default {
   data() {
@@ -127,52 +124,42 @@ export default {
       digitalOcean: require("../../assets/digital-ocean.png"),
       upunLogo: require("../../assets/upun-logo.jpg"),
       vyprVpn: require("../../assets/vypr-vpn.png"),
-      listData: [
-        {
-          id: Math.round(Math.random() * 100),
-          title: "本站评论系统是使用的第三方的吗？",
-          author: "JellyBool",
-          avatar: "https://bulma.io/images/placeholders/48x48.png",
-          time: "3个月前",
-          tag: [
-            { text: "php", style: "is-primary" },
-            { text: "laravel", style: "is-danger" }
-          ],
-          commentCount: Math.round(Math.random() * 100),
-          desc:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis."
-        },
-        {
-          id: Math.round(Math.random() * 100),
-          title: "本站评论系统是使用的第三方的吗？",
-          author: "JellyBool",
-          avatar: "https://bulma.io/images/placeholders/48x48.png",
-          time: "3个月前",
-          tag: [
-            { text: "php", style: "is-link" },
-            { text: "laravel", style: "is-warning" }
-          ],
-          commentCount: Math.round(Math.random() * 100),
-          desc:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis."
-        }
-      ]
+      filters: {
+        pageSize: 20,
+        page: 1
+      },
+      pagination: {
+        current: 1,
+        pageSize: 20,
+        total: 0
+      },
+      listData: []
     };
   },
   components: {
     Pagiation
   },
-  computed: {
-    randomTagStyle(style) {
-      // let tagStyleMAp = ['is-light', 'is-dark', 'is-black', 'is-primary', 'is-link', 'is-info', 'is-success', 'is-warning', 'is-danger']
-      // let index = Math.floor((Math.random()*tagStyleMAp.length))
-      return style;
+  filters: {
+    relateTime(str) {
+      return timeToDate(str);
     }
+  },
+  created() {
+    this.getQuestions();
   },
   methods: {
     jumpQuestionDetail(nums) {
       this.$router.push({ name: "questionDetail", params: { id: nums } });
-    }
+    },
+    async getQuestions() {
+      try {
+        const { data } = await getQuestions(this.filters);
+        this.listData = data.data.data;
+        console.log(data.data);
+      } catch ({ response }) {
+        console.log(response);
+      }
+    },
   }
 };
 </script>

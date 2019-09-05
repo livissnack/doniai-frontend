@@ -1,4 +1,4 @@
-<!-- 问答详情页 -->
+<!-- 文章详情页 -->
 <template>
   <div class="content-box container is-fullhd">
     <div class="container">
@@ -246,7 +246,7 @@
 </template>
 
 <script>
-import { showQuestion } from "../../services/api";
+import { showArticle } from "../../services/api";
 import {
   Facebook,
   Twitter,
@@ -271,12 +271,12 @@ export default {
     Email
   },
   created() {
-    this.getQuestion();
+    this.getArticle();
   },
   methods: {
-     async getQuestion() {
+     async getArticle() {
       try {
-        const { data } = await showQuestion(this.$route.params.id);
+        const { data } = await showArticle(this.$route.params.id);
         this.data = (data.data)[0];
         console.log(this.data);
       } catch ({ response }) {

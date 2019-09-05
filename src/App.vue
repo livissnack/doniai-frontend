@@ -41,4 +41,12 @@ export default {
 .notification {
   margin-bottom: 0 !important;
 }
+
+.ml0 {
+  margin-left: 0;
+}
+
+.mr0 {
+  margin-right: 0;
+}
 </style>
