@@ -27,6 +27,7 @@
             v-for="item in listData"
             :key="item.id"
             @click="jumpArticleDetail(item.id)"
+            v-cloak
           >
             <div class="media-content">
               <div class="content">

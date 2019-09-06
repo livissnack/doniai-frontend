@@ -11,6 +11,7 @@
                 :key="item.id"
                 :to="{ path: `/lessons/${item.id}` }"
                 class="panel-block"
+                v-cloak
               >
                 <div class="play-content-left">
                   <span class="panel-icon">

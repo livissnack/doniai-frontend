@@ -9,6 +9,7 @@
             v-for="item in listData"
             :key="item.id"
             @click="jumpQuestionDetail(item.id)"
+            v-cloak
           >
             <figure class="media-left">
               <p class="image is-48x48">
