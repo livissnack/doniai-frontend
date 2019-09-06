@@ -291,8 +291,17 @@ export async function destroyVideo(id, params) {
 
 
 
-
-
+/*
+|--------------------------------------------------------------------------
+| oss api methods
+|--------------------------------------------------------------------------
+|
+| getImgOssConfig(get oss config data)
+|
+*/
+export async function getImgOssConfig() {
+  return request("get", `api/v1/oss/getImgOssConfig`);
+}
 
 
 

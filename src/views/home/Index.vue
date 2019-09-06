@@ -3,344 +3,38 @@
     <Hero />
     <div class="container is-fullhd series-all">
       <div class="container">
-        <div class="series-message">
-          投资在学习上的时间和金钱总有一天会回赠给你自己 ！
-        </div>
-        <div class="columns is-desktop">
-          <div class="column">
+        <div class="series-message">投资在学习上的时间和金钱总有一天会回赠给你自己 ！</div>
+        <div class="columns is-desktop" v-for="item in listData" :key="item.id">
+          <div class="column" v-for="itemChild in item" :key="itemChild.id">
             <div class="card">
               <div class="card-content">
                 <div class="media">
                   <div class="media-content">
-                    <router-link to="/lessons" class="title is-6"
-                      >高可用服务架构</router-link
-                    >
+                    <router-link
+                      :to="`/lessons/${itemChild.id}`"
+                      class="title is-6"
+                    >{{ itemChild.title|omittitle }}</router-link>
                   </div>
                 </div>
 
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
+                <div class="content">{{ itemChild.intro|omitcontent }}</div>
               </div>
               <div class="card-image">
                 <figure class="image is-16by9">
-                  <router-link to="/lessons"
-                    ><img v-lazy="laravelImg" alt="Placeholder image"
-                  /></router-link>
+                  <router-link :to="`/lessons/${itemChild.id}`">
+                    <img v-lazy="`${itemChild.image}`" alt="Placeholder image" />
+                  </router-link>
                 </figure>
               </div>
 
               <div class="toolbar">
                 <p class="max60">
                   <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
+                  <a href="/learn/laravel" class="toolbar-tag">{{ itemChild.duration }} 分钟</a>
                 </p>
                 <div class="flex align-center">
                   <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="es2015Img" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""><img v-lazy="phpImg" alt="Placeholder image"/></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="columns is-desktop">
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">PHP 基础教程</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  本系列视频面向 PHP 初学者，全课程包含 30
-                  个视频，每个视频都会详细讲解 ...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="sublimeImg" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="studioImg" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="webpackImg" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="columns is-desktop">
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="laravelImg" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="laravelImg" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
-                  </time>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a class="title is-6">高可用服务架构</a>
-                  </div>
-                </div>
-
-                <div class="content">
-                  高可用服务架构系列将会从宏观的角度出发，将负载均衡，MySQL
-                  主从数据库，Re...
-                </div>
-              </div>
-              <div class="card-image">
-                <figure class="image is-16by9">
-                  <a href=""
-                    ><img v-lazy="laravelImg" alt="Placeholder image"
-                  /></a>
-                </figure>
-              </div>
-
-              <div class="toolbar">
-                <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">146 分钟</a>
-                </p>
-                <div class="flex align-center">
-                  <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>
-                      15 个视频
-                    </strong>
+                    <strong>{{ itemChild.nums }} 个视频</strong>
                   </time>
                 </div>
               </div>
@@ -353,21 +47,62 @@
 </template>
 
 <script>
+import querystring from "querystring";
+import { getCourses } from "../../services/api";
 import Hero from "@/components/Hero";
 export default {
   data() {
     return {
-      laravelImg: require("../../assets/series/laravel.jpg"),
-      es2015Img: require("../../assets/series/es2015.jpg"),
-      phpImg: require("../../assets/series/php7.jpg"),
-      sublimeImg: require("../../assets/series/sublime.jpg"),
-      studioImg: require("../../assets/series/visual-studio.jpg"),
-      webpackImg: require("../../assets/series/webpack.jpg"),
-      testImg: "https://bulma.io/images/placeholders/1280x960.png"
+      filters: {
+        pageSize: 30,
+        page: 1
+      },
+      pagination: {
+        current: 1,
+        pageSize: 30,
+        total: 0
+      },
+      listData: []
     };
   },
   components: {
     Hero
+  },
+  filters: {
+    omittitle(value, length = 80) {
+      return value && value.length > 80
+        ? value.substring(0, length) + "..."
+        : value;
+    },
+    omitcontent(value, length = 180) {
+      return value && value.length > 180
+        ? value.substring(0, length) + "..."
+        : value;
+    },
+  },
+  async created() {
+    await this.getCourses();
+  },
+  methods: {
+    async getCourses() {
+      try {
+        const { data } = await getCourses(this.filters);
+        const resData = data.data.data;
+        let arrTemp = [];
+        let index = 0;
+        let sectionCount = 3;
+        for (let i = 0; i < resData.length; i++) {
+          index = parseInt(i / sectionCount);
+          if (arrTemp.length <= index) {
+            arrTemp.push([]);
+          }
+          arrTemp[index].push(resData[i]);
+        }
+        this.listData = arrTemp;
+      } catch ({ response }) {
+        console.log(response);
+      }
+    }
   }
 };
 </script>
