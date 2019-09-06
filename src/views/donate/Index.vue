@@ -36,9 +36,8 @@ export default {
     return {
       videoTitle: "万水千山总是情，多给几分行不行！",
       collectMoney: {
-        alipayRedpackImg: require("../../assets/alipay-redpack.png"),
-        alipayCollectImg: require("../../assets/alipay-collect.jpeg"),
-        wechatpayCollectImg: require("../../assets/wechatpay-collect.jpeg")
+        alipayCollectImg: "https://cdn.doniai.com/uploads/images/qrcodes/alipay-collect.jpeg",
+        wechatpayCollectImg: "https://cdn.doniai.com/uploads/images/qrcodes/wechatpay-collect.jpeg"
       }
     };
   }

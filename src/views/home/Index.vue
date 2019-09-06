@@ -3,7 +3,7 @@
     <Hero />
     <div class="container is-fullhd series-all">
       <div class="container">
-        <div class="series-message">投资在学习上的时间和金钱总有一天会回赠给你自己 ！</div>
+        <div class="series-message">{{ courseTitle }}</div>
         <div class="columns is-desktop" v-for="item in listData" :key="item.id">
           <div class="column" v-for="itemChild in item" :key="itemChild.id">
             <div class="card">
@@ -13,11 +13,11 @@
                     <router-link
                       :to="`/lessons/${itemChild.id}`"
                       class="title is-6"
-                    >{{ itemChild.title|omittitle }}</router-link>
+                    >{{ itemChild.title|omit_title }}</router-link>
                   </div>
                 </div>
 
-                <div class="content">{{ itemChild.intro|omitcontent }}</div>
+                <div class="content">{{ itemChild.intro|omit_content }}</div>
               </div>
               <div class="card-image">
                 <figure class="image is-16by9">
@@ -29,12 +29,12 @@
 
               <div class="toolbar">
                 <p class="max60">
-                  <strong>时长:</strong>
-                  <a href="/learn/laravel" class="toolbar-tag">{{ itemChild.duration }} 分钟</a>
+                  <strong>{{ durationTitle }}</strong>
+                  <router-link :to="`/lessons/${itemChild.id}`" class="toolbar-tag">{{ itemChild.duration|duration_text }}</router-link>
                 </p>
                 <div class="flex align-center">
                   <time datetime="2017-06-27 06:42:48" class="m-r-1">
-                    <strong>{{ itemChild.nums }} 个视频</strong>
+                    <strong>{{ itemChild.nums|nums_text }}</strong>
                   </time>
                 </div>
               </div>
@@ -62,6 +62,8 @@ export default {
         pageSize: 30,
         total: 0
       },
+      durationTitle: '时长:',
+      courseTitle: '投资在学习上的时间和金钱总有一天会回赠给你自己 ！',
       listData: []
     };
   },
@@ -69,15 +71,21 @@ export default {
     Hero
   },
   filters: {
-    omittitle(value, length = 80) {
+    omit_title(value, length = 80) {
       return value && value.length > 80
         ? value.substring(0, length) + "..."
         : value;
     },
-    omitcontent(value, length = 180) {
+    omit_content(value, length = 180) {
       return value && value.length > 180
         ? value.substring(0, length) + "..."
         : value;
+    },
+    duration_text(value) {
+      return `${value} 分钟`;
+    },
+    nums_text(value) {
+      return `${value} 个视频`;
     },
   },
   async created() {

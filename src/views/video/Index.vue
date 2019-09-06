@@ -43,6 +43,7 @@
 <script>
 import { getVideos } from "../../services/api";
 import Pagiation from "@/components/Pagiation";
+import { ToastProgrammatic as Toast } from "buefy";
 export default {
   data() {
     return {
@@ -75,9 +76,12 @@ export default {
       try {
         const { data } = await getVideos(this.filters);
         this.listData = data.data.data;
-        console.log(data.data);
       } catch ({ response }) {
-        console.log(response);
+        Toast.open({
+          message: `视频接口数据请求失败`,
+          position: "is-bottom-right",
+          type: "is-danger"
+        });
       }
     },
   }

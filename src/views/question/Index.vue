@@ -119,12 +119,13 @@
 import { getQuestions } from "../../services/api";
 import { timeToDate } from "../../utils/helpers";
 import Pagiation from "@/components/Pagiation";
+import { ToastProgrammatic as Toast } from "buefy";
 export default {
   data() {
     return {
-      digitalOcean: require("../../assets/digital-ocean.png"),
-      upunLogo: require("../../assets/upun-logo.jpg"),
-      vyprVpn: require("../../assets/vypr-vpn.png"),
+      digitalOcean: "https://cdn.doniai.com/uploads/images/adverts/digital-ocean.png",
+      upunLogo: "https://cdn.doniai.com/uploads/images/adverts/upun-logo.jpg",
+      vyprVpn: "https://cdn.doniai.com/uploads/images/adverts/vypr-vpn.png",
       filters: {
         pageSize: 20,
         page: 1
@@ -156,9 +157,12 @@ export default {
       try {
         const { data } = await getQuestions(this.filters);
         this.listData = data.data.data;
-        console.log(data.data);
       } catch ({ response }) {
-        console.log(response);
+        Toast.open({
+          message: `问题接口数据请求失败`,
+          position: "is-bottom-right",
+          type: "is-danger"
+        });
       }
     },
   }

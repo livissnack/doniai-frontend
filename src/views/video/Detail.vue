@@ -235,9 +235,9 @@ export default {
         poster: require("../../assets/series/31fcda47-100b-42e1-a513-c6aa09c3b2dd.jpg")
       },
       collectMoney: {
-        alipayRedpackImg: require("../../assets/alipay-redpack.png"),
-        alipayCollectImg: require("../../assets/alipay-collect.jpeg"),
-        wechatpayCollectImg: require("../../assets/wechatpay-collect.jpeg")
+        alipayRedpackImg: "https://cdn.doniai.com/uploads/images/qrcodes/alipay-redpack.png",
+        alipayCollectImg: "https://cdn.doniai.com/uploads/images/qrcodes/alipay-collect.jpeg",
+        wechatpayCollectImg: "https://cdn.doniai.com/uploads/images/qrcodes/wechatpay-collect.jpeg"
       }
     };
   },
