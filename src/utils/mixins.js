@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueParticles from "vue-particles";
 import captcha from "vue-social-captcha";
-import { Snackbar } from "buefy/dist/components/snackbar";
+import { SnackbarProgrammatic as Snackbar } from "buefy";
 Vue.use(captcha);
 Vue.use(VueParticles);
 

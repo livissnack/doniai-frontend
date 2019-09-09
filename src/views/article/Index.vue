@@ -136,8 +136,7 @@
 import { getArticles } from "../../services/api";
 import { timeToDate } from "../../utils/helpers";
 import Pagiation from "@/components/Pagiation";
-import { SnackbarProgrammatic as Snackbar } from 'buefy'
-import { ToastProgrammatic as Toast } from "buefy";
+import { ToastProgrammatic as Toast, SnackbarProgrammatic as Snackbar } from "buefy";
 export default {
   data() {
     return {

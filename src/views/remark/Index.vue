@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { Snackbar } from "buefy/dist/components/snackbar";
+import { SnackbarProgrammatic as Snackbar } from "buefy";
 export default {
   data() {
     return {

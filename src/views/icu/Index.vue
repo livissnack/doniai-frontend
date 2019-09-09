@@ -5,13 +5,9 @@
         <div class="container">
           <h1 class="title">提供一个自由平台</h1>
           <h1 class="title">论述业内公司欠妥当行为</h1>
-          <h2 class="subtitle">
-            客观、公正、事实说话！
-          </h2>
+          <h2 class="subtitle">客观、公正、事实说话！</h2>
           <div class="hero-btn">
-            <router-link class="button is-medium" to="/createicu"
-              >马上添加新的公司</router-link
-            >
+            <a class="button is-medium" @click="jumpPage">马上添加新的公司</a>
           </div>
         </div>
       </div>
@@ -23,18 +19,22 @@
             <li>
               <h4>排序方式:</h4>
             </li>
-            <li class="is-active"><a>按确认人数</a></li>
-            <li><a>按最新提交</a></li>
+            <li class="is-active">
+              <a>按确认人数</a>
+            </li>
+            <li>
+              <a>按最新提交</a>
+            </li>
           </ul>
         </div>
 
         <div class="icu-add">
-          <router-link class="button is-info is-small" to="/createicu">
+          <a class="button is-info is-small">
             <span class="icon">
               <i class="fas fa-plus"></i>
             </span>
             <span>提交新公司</span>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
@@ -42,11 +42,7 @@
     <div class="icu-box">
       <!-- 卡片展示 -->
       <div class="columns" v-for="(value, index) in computedData" :key="index">
-        <div
-          class="column"
-          v-for="(itemValue, itemIndex) in value"
-          :key="itemIndex"
-        >
+        <div class="column" v-for="(itemValue, itemIndex) in value" :key="itemIndex">
           <IcuCard
             :companyId="itemValue.id"
             :compnayName="itemValue.name"
@@ -72,7 +68,7 @@
 <script>
 import IcuCard from "../../components/IcuCard";
 import Pagiation from "@/components/Pagiation";
-import { Toast } from "buefy/dist/components/toast";
+import { ToastProgrammatic as Toast } from "buefy";
 import { sliceThreeArray } from "../../utils/helpers";
 export default {
   data() {
@@ -160,6 +156,9 @@ export default {
         position: "is-top",
         type: "is-success"
       });
+    },
+    jumpPage() {
+      this.$router.push({ path: "/createicu" });
     },
     sliceThreeArray
   }

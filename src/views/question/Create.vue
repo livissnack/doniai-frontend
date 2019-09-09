@@ -49,10 +49,7 @@
 
 <script>
 import Vue from "vue";
-import { Snackbar } from "buefy/dist/components/snackbar";
-import Field from "buefy/dist/components/field";
-import Input from "buefy/dist/components/input";
-import Taginput from "buefy/dist/components/taginput";
+import { Field, Input, Taginput, SnackbarProgrammatic as Snackbar } from "buefy";
 import mavonEditor from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
 Vue.use(Field);

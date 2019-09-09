@@ -225,9 +225,7 @@
 </template>
 
 <script>
-import { Toast } from "buefy/dist/components/toast";
-import { Dialog } from "buefy/dist/components/dialog";
-import { Radio } from "buefy/dist/components/radio";
+import { ToastProgrammatic as Toast, DialogProgrammatic as Dialog, Radio } from "buefy";
 export default {
   data() {
     return {
