@@ -50,6 +50,7 @@
 import querystring from "querystring";
 import { getCourses } from "../../services/api";
 import Hero from "@/components/Hero";
+import { ToastProgrammatic as Toast } from "buefy";
 export default {
   data() {
     return {
@@ -108,7 +109,11 @@ export default {
         }
         this.listData = arrTemp;
       } catch ({ response }) {
-        console.log(response);
+        Toast.open({
+          message: `视频系列接口数据请求失败`,
+          position: "is-bottom-right",
+          type: "is-danger"
+        });
       }
     }
   }

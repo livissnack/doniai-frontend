@@ -255,6 +255,7 @@ import {
   Google,
   Email
 } from "vue-socialmedia-share";
+import { ToastProgrammatic as Toast } from "buefy";
 
 export default {
   data() {
@@ -278,9 +279,12 @@ export default {
       try {
         const { data } = await showQuestion(this.$route.params.id);
         this.data = (data.data)[0];
-        console.log(this.data);
       } catch ({ response }) {
-        console.log(response);
+         Toast.open({
+          message: `问题详情接口数据请求失败`,
+          position: "is-bottom-right",
+          type: "is-danger"
+        });
       }
     },
   }
