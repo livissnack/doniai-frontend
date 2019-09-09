@@ -12,28 +12,27 @@ const router = new Router({
       path: "/login",
       name: "login",
       component: () => import("@/views/auth/Login.vue"),
-      meta: { isLogin: false }
+      meta: { title: "NodeJs 视频问答社区 - Doniai", isLogin: false }
     },
     {
       path: "/register",
       name: "register",
       component: () => import("@/views/auth/Register.vue"),
-      meta: { isLogin: false }
+      meta: { title: "NodeJs 视频问答社区 - Doniai", isLogin: false }
     },
     {
       path: "/reset_password",
       name: "resetPassword",
       component: () => import("@/views/auth/ResetPassword.vue"),
-      meta: { isLogin: false }
+      meta: { title: "NodeJs 视频问答社区 - Doniai", isLogin: false }
     },
     {
       path: "/",
-      name: "layout",
       component: () => import("@/components/layouts/Index.vue"),
       children: [
         // 主页
         {
-          path: "/home",
+          path: "/",
           component: () => import("@/views/home/Index.vue"),
           name: "home",
           meta: { title: "NodeJs 视频问答社区 - Doniai", isLogin: false }
@@ -156,9 +155,6 @@ router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title;
   }
-  if (to.name == "layout") {
-    next({ path: "/home" });
-  }
 
   let getFlag = localStorage.getItem("flag");
   if (getFlag === "isLogin") {
@@ -166,7 +162,7 @@ router.beforeEach((to, from, next) => {
     next();
 
     if (!to.meta.isLogin) {
-      next({ path: "/home" });
+      next({ path: "/" });
     }
   } else {
     if (to.meta.isLogin) {
