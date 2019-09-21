@@ -1,7 +1,9 @@
 <template>
   <div class="is-fullhd clear-space">
     <Navbar />
-    <router-view></router-view>
+     <keep-alive>
+      <router-view />
+    </keep-alive>
     <Footer />
   </div>
 </template>
