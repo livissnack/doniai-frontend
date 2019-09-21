@@ -12,7 +12,7 @@ const router = new Router({
       path: "/login",
       name: "login",
       component: () => import("@/views/auth/Login.vue"),
-      meta: { title: "NodeJs 视频问答社区 - Doniai", isLogin: false }
+      meta: { title: "NodeJs 视频问答社区 - Doniai"}
     },
     {
       path: "/register",

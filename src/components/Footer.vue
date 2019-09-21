@@ -81,15 +81,13 @@
           <ul class="zeroed">
             <li class="supplier-logo supplier-aliyun">
               <div>
-                <Tooltip label="阿里云" position="is-right">
-                  <a href="https://www.aliyun.com">
-                    <img
-                      class="company-logo"
-                      :src="supplierLogos.aliyun"
-                      alt="aliyun"
-                    />
-                  </a>
-                </Tooltip>
+                <a href="https://www.aliyun.com">
+                  <img
+                    class="company-logo"
+                    :src="supplierLogos.aliyun"
+                    alt="aliyun"
+                  />
+                </a>
               </div>
             </li>
             <li class="supplier-logo supplier-mailgun">
@@ -124,7 +122,6 @@
 </template>
 
 <script>
-import { Tooltip } from "buefy/dist/components/tooltip";
 export default {
   data() {
     return {
@@ -141,9 +138,6 @@ export default {
         mailgun: require("../assets/mailgun.svg")
       }
     };
-  },
-  components: {
-    Tooltip
   }
 };
 </script>
