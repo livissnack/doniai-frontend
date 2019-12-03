@@ -30,7 +30,10 @@
               <div class="toolbar">
                 <p class="max60">
                   <strong>{{ durationTitle }}</strong>
-                  <router-link :to="`/lessons/${itemChild.id}`" class="toolbar-tag">{{ itemChild.duration|duration_text }}</router-link>
+                  <router-link
+                    :to="`/lessons/${itemChild.id}`"
+                    class="toolbar-tag"
+                  >{{ itemChild.duration|duration_text }}</router-link>
                 </p>
                 <div class="flex align-center">
                   <time datetime="2017-06-27 06:42:48" class="m-r-1">
@@ -52,7 +55,7 @@ import { getCourses } from "../../services/api";
 import Hero from "@/components/Hero";
 import { ToastProgrammatic as Toast } from "buefy";
 export default {
-  data() {
+  data () {
     return {
       filters: {
         pageSize: 30,
@@ -72,31 +75,31 @@ export default {
     Hero
   },
   filters: {
-    omit_title(value, length = 80) {
+    omit_title (value, length = 80) {
       return value && value.length > 80
         ? value.substring(0, length) + "..."
         : value;
     },
-    omit_content(value, length = 180) {
+    omit_content (value, length = 180) {
       return value && value.length > 180
         ? value.substring(0, length) + "..."
         : value;
     },
-    duration_text(value) {
+    duration_text (value) {
       return `${value} 分钟`;
     },
-    nums_text(value) {
+    nums_text (value) {
       return `${value} 个视频`;
     },
   },
-  async created() {
+  async created () {
     await this.getCourses();
   },
   methods: {
-    async getCourses() {
+    async getCourses () {
       try {
         const { data } = await getCourses(this.filters);
-        const resData = data.data.data;
+        const resData = data.data;
         let arrTemp = [];
         let index = 0;
         let sectionCount = 3;

@@ -23,24 +23,19 @@
                   <nav class="some-content level is-mobile">
                     <div class="level-left">
                       <a class="level-item">
-                        <span class="author-font is-small"
-                          >{{ item.user.username }} 发表于</span
-                        >
+                        <span class="author-font is-small">{{ item.user.username }} 发表于</span>
                       </a>
                       <a class="level-item">
                         <time class="time-font">{{ item.updated_at|relateTime }}</time>
                       </a>
                     </div>
                   </nav>
-                  <span class="comment-content">
-                    {{ item.content }}
-                  </span>
+                  <span class="comment-content">{{ item.content }}</span>
                 </div>
               </div>
             </div>
             <div class="media-right">
               <span class="tag-collect tag is-success">laravel</span>
-
               &nbsp;
               <span class="icon has-text-black">
                 <i class="fas fa-comment">{{ item.replay_count }}</i>
@@ -54,8 +49,9 @@
               <router-link
                 to="/discuss/create"
                 class="write-question-btn button is-normal is-primary is-fullwidth"
-                ><i class="fab fa-telegram-plane"> 撰写问题</i></router-link
               >
+                <i class="fab fa-telegram-plane">撰写问题</i>
+              </router-link>
 
               <article class="ads-content">
                 <div class="card-image">
@@ -78,10 +74,10 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <a
-                      >科学上网服务,使用此链接你可获得 $20
-                      优惠,支持支付宝付款！！！</a
-                    >
+                    <a>
+                      科学上网服务,使用此链接你可获得 $20
+                      优惠,支持支付宝付款！！！
+                    </a>
                   </div>
                 </div>
               </article>
@@ -94,10 +90,10 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <a
-                      >DigitalOcean $100 优惠链接，使用此链接你可以获取 $100
-                      美元优惠</a
-                    >
+                    <a>
+                      DigitalOcean $100 优惠链接，使用此链接你可以获取 $100
+                      美元优惠
+                    </a>
                   </div>
                 </div>
               </article>
@@ -121,7 +117,7 @@ import { timeToDate } from "../../utils/helpers";
 import Pagiation from "@/components/Pagiation";
 import { ToastProgrammatic as Toast } from "buefy";
 export default {
-  data() {
+  data () {
     return {
       digitalOcean: "https://cdn.doniai.com/uploads/images/adverts/digital-ocean.png",
       upunLogo: "https://cdn.doniai.com/uploads/images/adverts/upun-logo.jpg",
@@ -142,21 +138,21 @@ export default {
     Pagiation
   },
   filters: {
-    relateTime(str) {
+    relateTime (str) {
       return timeToDate(str);
     }
   },
-  created() {
+  created () {
     this.getQuestions();
   },
   methods: {
-    jumpQuestionDetail(nums) {
+    jumpQuestionDetail (nums) {
       this.$router.push({ name: "questionDetail", params: { id: nums } });
     },
-    async getQuestions() {
+    async getQuestions () {
       try {
         const { data } = await getQuestions(this.filters);
-        this.listData = data.data.data;
+        this.listData = data.data;
       } catch ({ response }) {
         Toast.open({
           message: `问题接口数据请求失败`,

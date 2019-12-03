@@ -5,7 +5,9 @@
       <div class="columns is-desktop ml0 mr0">
         <div class="column comment-content-box is-two-thirds">
           <div class="question_top_info">
-            <h1><a>{{ data.title }}</a></h1>
+            <h1>
+              <a>{{ data.title }}</a>
+            </h1>
             <nav class="level is-mobile">
               <div class="level-left">
                 <a class="level-item">
@@ -13,12 +15,14 @@
                 </a>
                 <ul class="question-type-tag level-item">
                   <li>
-                    <a href=""
-                      ><span class="tag is-success">javascript</span></a
-                    >
+                    <a href>
+                      <span class="tag is-success">javascript</span>
+                    </a>
                   </li>
                   <li>
-                    <a href=""><span class="tag is-success">多线程</span></a>
+                    <a href>
+                      <span class="tag is-success">多线程</span>
+                    </a>
                   </li>
                 </ul>
                 <span class="read-count">484次阅读</span>
@@ -32,44 +36,54 @@
               class="article fmt article__content"
               data-id="1190000018398599"
               data-license="cc"
-            >
-              {{ data.content }}
-            </div>
+            >{{ data.content }}</div>
 
             <ul class="social-share-box">
               <li class="handle-share-facebook-error">
-                <a href="#"> <Facebook scale="2" url=""/></a>
+                <a href="#">
+                  <Facebook scale="2" url />
+                </a>
               </li>
               <li>
-                <a href="#"> <Twitter scale="2" url=""/></a>
+                <a href="#">
+                  <Twitter scale="2" url />
+                </a>
               </li>
               <li>
-                <a href="#"> <Linkedin scale="2" url=""/></a>
+                <a href="#">
+                  <Linkedin scale="2" url />
+                </a>
               </li>
               <li>
-                <a href="#"> <WhatsApp scale="2" url=""/></a>
+                <a href="#">
+                  <WhatsApp scale="2" url />
+                </a>
               </li>
               <li>
-                <a href="#"> <Google scale="2" url=""/></a>
+                <a href="#">
+                  <Google scale="2" url />
+                </a>
               </li>
               <li>
-                <a href="#"> <Email scale="2" url=""/></a>
+                <a href="#">
+                  <Email scale="2" url />
+                </a>
               </li>
             </ul>
 
             <div class="question-toolbox">
               <ul>
                 <li class="link-style">
-                  <a href="">
+                  <a href>
                     <button class="button is-success">
                       <span id="mainLikeText">赞</span>&nbsp;&nbsp;
                       <span class="seprator">|</span>&nbsp;&nbsp;
-                      <span id="mainLikeNum">28 </span>
+                      <span id="mainLikeNum">28</span>
                     </button>
                   </a>
                 </li>
                 <li>
-                  <a href="">
+                  <a href>
                     <button class="button is-warning">
                       <span id="mainBookmarkText">收藏</span>&nbsp;&nbsp;
                       <span class="seprator">|</span>&nbsp;&nbsp;
@@ -89,50 +103,46 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-32x32">
-                  <img
-                    class="is-rounded"
-                    src="https://bulma.io/images/placeholders/32x32.png"
-                  />
+                  <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" />
                 </p>
               </figure>
               <div class="media-content">
                 <div class="content">
                   <p>
                     <strong>Barbara Middleton</strong>
+                    <br />性能优化没有穷尽啊
                     <br />
-                    性能优化没有穷尽啊
-                    <br />
-                    <small
-                      ><a
-                        ><i class="far fa-thumbs-up"
-                          >赞 <i class="like-count">+1</i></i
-                        ></a
-                      >
-                      · <a>回复</a> · 14 小时前</small
-                    >
+                    <small>
+                      <a>
+                        <i class="far fa-thumbs-up">
+                          赞
+                          <i class="like-count">+1</i>
+                        </i>
+                      </a>
+                      ·
+                      <a>回复</a> · 14 小时前
+                    </small>
                   </p>
                 </div>
 
                 <article class="media">
                   <figure class="media-left">
                     <p class="image is-32x32">
-                      <img
-                        class="is-rounded"
-                        src="https://bulma.io/images/placeholders/32x32.png"
-                      />
+                      <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" />
                     </p>
                   </figure>
                   <div class="media-content">
                     <div class="content">
                       <p>
                         <strong>Sean Brown</strong>
+                        <br />努力每天都是新的开始！
                         <br />
-                        努力每天都是新的开始！
-                        <br />
-                        <small
-                          ><a><i class="far fa-thumbs-up">赞</i></a> ·
-                          <a>回复</a> · 14 小时前</small
-                        >
+                        <small>
+                          <a>
+                            <i class="far fa-thumbs-up">赞</i>
+                          </a> ·
+                          <a>回复</a> · 14 小时前
+                        </small>
                       </p>
                     </div>
                   </div>
@@ -141,24 +151,22 @@
                 <article class="media">
                   <figure class="media-left">
                     <p class="image is-32x48">
-                      <img
-                        class="is-rounded"
-                        src="https://bulma.io/images/placeholders/32x32.png"
-                      />
+                      <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" />
                     </p>
                   </figure>
                   <div class="media-content">
                     <div class="content">
                       <p>
                         <strong>jifengg</strong>
-                        <br />
-                        图像压缩确实是
+                        <br />图像压缩确实是
                         一个非常值得学习的方向。至少在项目中也要学会使用，现在流量最贵，能省则省
                         <br />
-                        <small
-                          ><a><i class="far fa-thumbs-up">赞</i></a> ·
-                          <a>回复</a> · 14 小时前</small
-                        >
+                        <small>
+                          <a>
+                            <i class="far fa-thumbs-up">赞</i>
+                          </a> ·
+                          <a>回复</a> · 14 小时前
+                        </small>
                       </p>
                     </div>
                   </div>
@@ -168,19 +176,13 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-32x32">
-                  <img
-                    class="is-rounded"
-                    src="https://bulma.io/images/placeholders/32x32.png"
-                  />
+                  <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png" />
                 </p>
               </figure>
               <div class="media-content">
                 <div class="field">
                   <p class="control">
-                    <textarea
-                      class="textarea"
-                      placeholder="文明社会，理性评论"
-                    ></textarea>
+                    <textarea class="textarea" placeholder="文明社会，理性评论"></textarea>
                   </p>
                 </div>
                 <div class="field">
@@ -198,11 +200,7 @@
               <div class="card top-color responsive">
                 <div class="content">
                   <div class="header">
-                    <img
-                      width="22"
-                      height="22"
-                      src="../../assets/companylogs/44x44.png"
-                    />
+                    <img width="22" height="22" src="../../assets/companylogs/44x44.png" />
                     <span class="ml-2">Laravel</span>
                     知识社区
                   </div>
@@ -216,8 +214,7 @@
                       <a
                         href="https://learnku.com/laravel/wikis/7227"
                         class="sidebar-content-desc-decoration"
-                        >社区指南</a
-                      >
+                      >社区指南</a>
                     </div>
                   </div>
                 </div>
@@ -258,7 +255,7 @@ import {
 import { ToastProgrammatic as Toast } from "buefy";
 
 export default {
-  data() {
+  data () {
     return {
       data: {}
     };
@@ -271,16 +268,16 @@ export default {
     Google,
     Email
   },
-  created() {
+  created () {
     this.getQuestion();
   },
   methods: {
-     async getQuestion() {
+    async getQuestion () {
       try {
         const { data } = await showQuestion(this.$route.params.id);
-        this.data = (data.data)[0];
+        this.data = data[0];
       } catch ({ response }) {
-         Toast.open({
+        Toast.open({
           message: `问题详情接口数据请求失败`,
           position: "is-bottom-right",
           type: "is-danger"
@@ -298,7 +295,7 @@ export default {
 }
 
 .content {
-  figure{
+  figure {
     margin-left: 0;
     margin-right: 0;
   }

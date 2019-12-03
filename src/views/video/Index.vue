@@ -17,15 +17,11 @@
                   <span class="panel-icon">
                     <i class="far fa-play-circle"></i>
                   </span>
-                  <span class="panel-text">
-                    {{ item.name }}
-                  </span>
+                  <span class="panel-text">{{ item.name }}</span>
                 </div>
 
                 <div class="play-content-right">
-                  <span class="long-time panel-text">
-                    {{ item.duration|longtime }}
-                  </span>
+                  <span class="long-time panel-text">{{ item.duration|longtime }}</span>
                   <span class="panel-text">
                     <time>{{ item.publish_at }}</time>
                   </span>
@@ -45,7 +41,7 @@ import { getVideos } from "../../services/api";
 import Pagiation from "@/components/Pagiation";
 import { ToastProgrammatic as Toast } from "buefy";
 export default {
-  data() {
+  data () {
     return {
       filters: {
         pageSize: 40,
@@ -64,18 +60,18 @@ export default {
     Pagiation
   },
   filters: {
-    longtime(value) {
-      return value ? value+'小时' : '';
+    longtime (value) {
+      return value ? value + '小时' : '';
     }
   },
-  created() {
+  created () {
     this.getVideos();
   },
   methods: {
-    async getVideos() {
+    async getVideos () {
       try {
         const { data } = await getVideos(this.filters);
-        this.listData = data.data.data;
+        this.listData = data.data;
       } catch ({ response }) {
         Toast.open({
           message: `视频接口数据请求失败`,

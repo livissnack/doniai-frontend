@@ -1,4 +1,5 @@
-import request from "../utils/request";
+import request from '../utils/request'
+const ApiVersion = 'doniai/frontend/api/v1'
 
 /*
 |--------------------------------------------------------------------------
@@ -6,30 +7,20 @@ import request from "../utils/request";
 |--------------------------------------------------------------------------
 |
 | getArticles(get article list data)
-| storeArticle(store article data)
+| storeArticles(store article data)
 | showArticle(shwo article data)
-| updateArticle(update article data)
-| destroyArticle(destroy article data)
 |
 */
 export async function getArticles(params) {
-  return request("get", "api/v1/articles", params);
+  return request('get', `${ApiVersion}/articles`, params)
 }
 
-export async function storeArticle(params) {
-  return request("post", `api/v1/articles`, params);
+export async function storeArticles(params) {
+  return request('post', `${ApiVersion}/articles`, params)
 }
 
 export async function showArticle(id, params) {
-  return request("get", `api/v1/articles/${id}`, params);
-}
-
-export async function updateArticle(id, params) {
-  return request("put", `api/v1/articles/${id}`, params);
-}
-
-export async function destroyArticle(id, params) {
-  return request("delete", `api/v1/articles/${id}`, params);
+  return request('get', `${ApiVersion}/articles/${id}`, params)
 }
 
 /*
@@ -38,30 +29,15 @@ export async function destroyArticle(id, params) {
 |--------------------------------------------------------------------------
 |
 | getBooks(get book list data)
-| storeBook(store book data)
 | showBook(shwo book data)
-| updateBook(update book data)
-| destroyBook(destroy book data)
 |
 */
 export async function getBooks(params) {
-  return request("get", "api/v1/books", params);
-}
-
-export async function storeBook(params) {
-  return request("post", `api/v1/books`, params);
+  return request('get', `${ApiVersion}/books`, params)
 }
 
 export async function showBook(id, params) {
-  return request("get", `api/v1/books/${id}`, params);
-}
-
-export async function updateBook(id, params) {
-  return request("put", `api/v1/books/${id}`, params);
-}
-
-export async function destroyBook(id, params) {
-  return request("delete", `api/v1/books/${id}`, params);
+  return request('get', `${ApiVersion}/books/${id}`, params)
 }
 
 /*
@@ -71,29 +47,14 @@ export async function destroyBook(id, params) {
 |
 | getComments(get comment list data)
 | storeComment(store comment data)
-| showComment(shwo comment data)
-| updateComment(update comment data)
-| destroyComment(destroy comment data)
 |
 */
 export async function getComments(params) {
-  return request("get", "api/v1/comments", params);
+  return request('get', `${ApiVersion}/comments`, params)
 }
 
 export async function storeComment(params) {
-  return request("post", `api/v1/comments`, params);
-}
-
-export async function showComment(id, params) {
-  return request("get", `api/v1/comments/${id}`, params);
-}
-
-export async function updateComment(id, params) {
-  return request("put", `api/v1/comments/${id}`, params);
-}
-
-export async function destroyComment(id, params) {
-  return request("delete", `api/v1/comments/${id}`, params);
+  return request('post', `${ApiVersion}/comments`, params)
 }
 
 /*
@@ -102,30 +63,15 @@ export async function destroyComment(id, params) {
 |--------------------------------------------------------------------------
 |
 | getCourses(get course list data)
-| storeCourse(store course data)
 | showCourse(shwo course data)
-| updateCourse(update course data)
-| destroyCourse(destroy course data)
 |
 */
 export async function getCourses(params) {
-  return request("get", "api/v1/courses", params);
-}
-
-export async function storeCourse(params) {
-  return request("post", `api/v1/courses`, params);
+  return request('get', `${ApiVersion}/courses`, params)
 }
 
 export async function showCourse(id, params) {
-  return request("get", `api/v1/courses/${id}`, params);
-}
-
-export async function updateCourse(id, params) {
-  return request("put", `api/v1/courses/${id}`, params);
-}
-
-export async function destroyCourse(id, params) {
-  return request("delete", `api/v1/courses/${id}`, params);
+  return request('get', `${ApiVersion}/courses/${id}`, params)
 }
 
 /*
@@ -134,32 +80,11 @@ export async function destroyCourse(id, params) {
 |--------------------------------------------------------------------------
 |
 | getLinks(get link list data)
-| storeLink(store link data)
-| showLink(shwo link data)
-| updateLink(update link data)
-| destroyLink(destroy link data)
 |
 */
 export async function getLinks(params) {
-  return request("get", "api/v1/links", params);
+  return request('get', `${ApiVersion}/links`, params)
 }
-
-export async function storeLink(params) {
-  return request("post", `api/v1/links`, params);
-}
-
-export async function showLink(id, params) {
-  return request("get", `api/v1/links/${id}`, params);
-}
-
-export async function updateLink(id, params) {
-  return request("put", `api/v1/links/${id}`, params);
-}
-
-export async function destroyLink(id, params) {
-  return request("delete", `api/v1/links/${id}`, params);
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -169,28 +94,18 @@ export async function destroyLink(id, params) {
 | getQuestions(get question list data)
 | storeQuestion(store question data)
 | showQuestion(shwo question data)
-| updateQuestion(update question data)
-| destroyQuestion(destroy question data)
 |
 */
 export async function getQuestions(params) {
-  return request("get", "api/v1/questions", params);
+  return request('get', `${ApiVersion}/questions`, params)
 }
 
 export async function storeQuestion(params) {
-  return request("post", `api/v1/questions`, params);
+  return request('post', `${ApiVersion}/questions`, params)
 }
 
 export async function showQuestion(id, params) {
-  return request("get", `api/v1/questions/${id}`, params);
-}
-
-export async function updateQuestion(id, params) {
-  return request("put", `api/v1/questions/${id}`, params);
-}
-
-export async function destroyQuestion(id, params) {
-  return request("delete", `api/v1/questions/${id}`, params);
+  return request('get', `${ApiVersion}/questions/${id}`, params)
 }
 
 /*
@@ -200,29 +115,14 @@ export async function destroyQuestion(id, params) {
 |
 | getReplays(get replay list data)
 | storeReplay(store replay data)
-| showReplay(shwo replay data)
-| updateReplay(update replay data)
-| destroyReplay(destroy replay data)
 |
 */
 export async function getReplays(params) {
-  return request("get", "api/v1/replays", params);
+  return request('get', '${ApiVersion}/replays', params)
 }
 
 export async function storeReplay(params) {
-  return request("post", `api/v1/replays`, params);
-}
-
-export async function showReplay(id, params) {
-  return request("get", `api/v1/replays/${id}`, params);
-}
-
-export async function updateReplay(id, params) {
-  return request("put", `api/v1/replays/${id}`, params);
-}
-
-export async function destroyReplay(id, params) {
-  return request("delete", `api/v1/replays/${id}`, params);
+  return request('post', `${ApiVersion}/replays`, params)
 }
 
 /*
@@ -230,31 +130,11 @@ export async function destroyReplay(id, params) {
 | user api methods
 |--------------------------------------------------------------------------
 |
-| getUsers(get user list data)
-| storeUser(store user data)
-| showUser(shwo user data)
-| updateUser(update user data)
-| destroyUser(destroy user data)
+| getUser(shwo user data)
 |
 */
-export async function getUsers(params) {
-  return request("get", "api/v1/users", params);
-}
-
-export async function storeUser(params) {
-  return request("post", `api/v1/users`, params);
-}
-
-export async function showUser(id, params) {
-  return request("get", `api/v1/users/${id}`, params);
-}
-
-export async function updateUser(id, params) {
-  return request("put", `api/v1/users/${id}`, params);
-}
-
-export async function destroyUser(id, params) {
-  return request("delete", `api/v1/users/${id}`, params);
+export async function getUser(id, params) {
+  return request('get', `${ApiVersion}/users/${id}`, params)
 }
 
 /*
@@ -263,45 +143,13 @@ export async function destroyUser(id, params) {
 |--------------------------------------------------------------------------
 |
 | getVideos(get video list data)
-| storeVideo(store video data)
 | showVideo(shwo video data)
-| updateVideo(update video data)
-| destroyVideo(destroy video data)
 |
 */
 export async function getVideos(params) {
-  return request("get", "api/v1/videos", params);
-}
-
-export async function storeVideo(params) {
-  return request("post", `api/v1/videos`, params);
+  return request('get', `${ApiVersion}/videos`, params)
 }
 
 export async function showVideo(id, params) {
-  return request("get", `api/v1/videos/${id}`, params);
+  return request('get', `${ApiVersion}/videos/${id}`, params)
 }
-
-export async function updateVideo(id, params) {
-  return request("put", `api/v1/videos/${id}`, params);
-}
-
-export async function destroyVideo(id, params) {
-  return request("delete", `api/v1/videos/${id}`, params);
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| oss api methods
-|--------------------------------------------------------------------------
-|
-| getImgOssConfig(get oss config data)
-|
-*/
-export async function getImgOssConfig() {
-  return request("get", `api/v1/oss/getImgOssConfig`);
-}
-
-
-

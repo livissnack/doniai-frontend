@@ -138,7 +138,7 @@ import { timeToDate } from "../../utils/helpers";
 import Pagiation from "@/components/Pagiation";
 import { ToastProgrammatic as Toast, SnackbarProgrammatic as Snackbar } from "buefy";
 export default {
-  data() {
+  data () {
     return {
       digitalOcean:
         "https://cdn.doniai.com/uploads/images/adverts/digital-ocean.png",
@@ -160,28 +160,28 @@ export default {
     Pagiation
   },
   filters: {
-    relateTime(str) {
+    relateTime (str) {
       return timeToDate(str);
     }
   },
-  created() {
+  created () {
     this.getArticles();
   },
   methods: {
-    jumpArticleDetail(nums) {
+    jumpArticleDetail (nums) {
       this.$router.push({ name: "articleDetail", params: { id: nums } });
     },
-    handleWriteArticle() {
+    handleWriteArticle () {
       Snackbar.open({
         message: "文章撰写功能暂未对外开放",
         type: "is-warning",
         actionText: "No"
       });
     },
-    async getArticles() {
+    async getArticles () {
       try {
         const { data } = await getArticles(this.filters);
-        this.listData = data.data.data;
+        this.listData = data.data;
       } catch ({ response }) {
         Toast.open({
           message: `文章接口数据请求失败`,
