@@ -23,7 +23,7 @@
             </ul>
           </nav>
           <article
-            class="article-content mr-top10 media"
+            class="article-content media"
             v-for="item in listData"
             :key="item.id"
             @click="jumpArticleDetail(item.id)"
@@ -195,8 +195,6 @@ export default {
 </script>
 <style lang="less" scoped>
 .content-box {
-  background-color: #f5f5f1;
-  background: linear-gradient(135deg, #f5f5f1, #f5f5f1 30%, #ffffff) fixed;
   padding-top: 60px;
   padding-bottom: 60px;
 }
@@ -225,11 +223,11 @@ export default {
 }
 
 .article-content {
-  padding: 10px 40px 10px 10px;
+  padding: 20px 40px;
 
   &:hover {
-    background-color: #ffffff;
     cursor: pointer;
+    box-shadow: 5px 5px 5px #888888;
   }
 }
 
@@ -283,10 +281,6 @@ export default {
       font-size: 12px;
     }
   }
-}
-
-.mr-top10 {
-  margin-top: 10px;
 }
 
 .article-title {
