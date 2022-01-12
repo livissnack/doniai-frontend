@@ -114,7 +114,7 @@
             >© Doniai <em>{{ year }}</em
             >. All rights reserved.</span
           >
-          <a :href="links.miitbeianUrl">粤ICP备18045314号</a>
+          <a :href="links.miitbeianUrl">粤ICP备18045314号-1</a>
         </p>
       </div>
     </div>
@@ -131,7 +131,7 @@ export default {
         githupUrl: "https://githup.com/livissnack",
         vueUrl: "https://vuejs.org/",
         adonisjsUrl: "https://adonisjs.com/",
-        miitbeianUrl: "http://www.miitbeian.gov.cn"
+        miitbeianUrl: "https://beian.miit.gov.cn"
       },
       supplierLogos: {
         aliyun: require("../assets/aliyun.svg"),
